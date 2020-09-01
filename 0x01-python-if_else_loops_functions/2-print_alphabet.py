@@ -1,3 +1,3 @@
 #!/usr/bin/python3
-for a in range(97, 123):
-    print(chr(a), end="")
+for x in range(97, 123):
+    print("{:c}".format(x), end="")
