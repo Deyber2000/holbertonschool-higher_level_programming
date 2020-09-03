@@ -5,4 +5,4 @@ if __name__ == '__main__':
     top = len(sys.argv)
     for i in range(1, top):
         suma += int(sys.argv[i])
-    print(suma)    
+    print(suma)
