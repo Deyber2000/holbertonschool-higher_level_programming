@@ -1,4 +1,3 @@
-able file 15 lines (11 sloc) 479 Bytes
 #!/usr/bin/python3
 """Module for Rectangle class"""
 
