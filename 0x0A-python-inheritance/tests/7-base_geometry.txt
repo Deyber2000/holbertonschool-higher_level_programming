@@ -1,0 +1,92 @@
+```The '7-base_geometry' doctest```
+===================================
+
+Using '7-base_geometry'
+-----------------------
+
+Import module:
+	>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+Set bg equal to BaseGeometry():
+	>>> bg = BaseGeometry()
+
+Test for type:
+	>>> type(bg) is BaseGeometry
+	True
+
+Test area() with no arguments:
+	>>> bg.area()
+	Traceback (most recent call last):
+	Exception: area() is not implemented
+
+integer_validator() instance tests
+----------------------------------
+Test no arguments:
+	>>> bg.integer_validator()
+	Traceback (most recent call last):
+	TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+Test 1 agrument:
+	>>> bg.integer_validator("name")
+	Traceback (most recent call last):
+	TypeError: integer_validator() missing 1 required positional argument: 'value'
+
+Test if name is integer:
+	>>> bg.integer_validator("my_int", 12)
+
+Test if name is string:
+	>>> try:
+	...	bg.integer_validator("name", "Thomas")
+	... except Exception as e:
+	...	print("[{}] {}".format(e.__class__.__name__, e))
+	[TypeError] name must be an integer
+
+Test if age is 0:
+	>>> bg.integer_validator("age", 0)
+	Traceback (most recent call last):
+	ValueError: age must be greater than 0
+
+Test if distance is below 0:
+	>>> bg.integer_validator("distance", -4)
+	Traceback (most recent call last):
+	ValueError: distance must be greater than 0
+
+Test if argument is None:
+	>>> bg.integer_validator("argument", None)
+	Traceback (most recent call last):
+	TypeError: argument must be an integer
+
+Test if value is list value:
+	>>> bg.integer_validator("list", [3])
+	Traceback (most recent call last):
+	TypeError: list must be an integer
+
+Test if value is two in a list:
+	>>> bg.integer_validator("list", [1, 2])
+	Traceback (most recent call last):
+	TypeError: list must be an integer
+
+Test for NaN:
+	bg.integer_validator("naan", float('nan'))
+	Traceback (most recent call last):
+	TypeError: naan miust be an integer
+
+Test if float is a float:
+	>>> bg.integer_validator("float", 4.5)
+	Traceback (most recent call last):
+	TypeError: float must be an integer
+
+Test for comma:
+	>>> bg.integer_validator("comma", (4,))
+	Traceback (most recent call last):
+	TypeError: comma must be an integer
+
+Test for boolean:
+	>>> bg.integer_validator("boolean", True)
+	Traceback (most recent call last):
+	TypeError: boolean must be an integer
+
+Test for list:
+	>>> bg.integer_validator("listy", {3, 4})
+	Traceback (most recent call last):
+	TypeError: listy must be an integer
