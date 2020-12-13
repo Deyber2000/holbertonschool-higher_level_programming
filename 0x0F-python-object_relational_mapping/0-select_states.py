@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """ Lists all states from a database """
+
 import MySQLdb
 from sys import argv
 
@@ -8,6 +9,6 @@ if __name__ == '__main__':
     cur = db.cursor()
     nmrows = cur.execute("SELECT id,name FROM `states`")
     rows = cur.fetchall()
-    for i,row in enumerate(rows):
+    for row in rows:
         print(row)
             
